@@ -463,17 +463,6 @@ rule setup-address-model ( targets * : sources * : properties * )
         else
         {
             local arch = [ feature.get-values architecture : $(properties) ] ;
-            if $(arch) = power || $(arch) = sparc || $(arch) = x86
-            {
-                if $(model) = 32
-                {
-                    option = -m32 ;
-                }
-                else if $(model) = 64
-                {
-                    option = -m64 ;
-                }
-            }
             # For darwin, the model can be 32_64. darwin.jam will handle that
             # on its own.
         }
